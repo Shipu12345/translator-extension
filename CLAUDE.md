@@ -24,6 +24,11 @@ Hard constraints:
   - IntersectionObserver never fires in hidden or background tabs, and `requestAnimationFrame` never fires there either. Test with a visible tab.
   - `LanguageDetector.create()` can reject (with `undefined`) in hidden documents. The engine treats detector failures as "German".
 
+## Release (GitHub, free distribution: PROJECT.md decision 10b)
+- Bump `version` in `manifest.json`, then build the zip from only the extension files:
+  `zip -r german-english-translator-vX.Y.Z.zip manifest.json background.js content setup icons`
+- Publish it: `gh release create vX.Y.Z german-english-translator-vX.Y.Z.zip`. Zips are gitignored.
+
 ## Architecture
 - **background.js** (service worker)
   - Holds the per-tab on/off state in `chrome.storage.session` (`tab:<id>`).
