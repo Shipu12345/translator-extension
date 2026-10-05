@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "German → English Translator",
+  "version": "1.0.0",
+  "description": "On-demand, on-device German to English translation using Chrome's built-in Translator API. Free, no API keys.",
+  "minimum_chrome_version": "138",
+  "permissions": [
+    "storage",
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Translate page to English (Alt+T)",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content/engine.js",
+        "content/page.js",
+        "content/selection.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+T"
+      },
+      "description": "Toggle page translation"
+    },
+    "translate-selection": {
+      "suggested_key": {
+        "default": "Alt+Shift+T"
+      },
+      "description": "Translate selected text"
+    }
+  }
+}
