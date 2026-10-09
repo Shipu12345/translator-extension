@@ -11,7 +11,7 @@ Hard constraints:
 - **Never auto-translate** a tab the user hasn't switched on.
 
 ## Develop / test
-- No build, lint or test tooling. Syntax-check with `for f in background.js content/*.js setup/setup.js; do node --check "$f"; done`.
+- No build, lint or test tooling. Syntax-check with `for f in background.js content/*.js; do node --check "$f"; done`.
 - Run: `chrome://extensions` → Developer mode → Load unpacked (repo root). After edits, click reload on the extension card **and** reload the target tab, because content scripts don't hot-update.
 - Content-script logs are prefixed `[GTE]` (console.debug, so enable "Verbose" in DevTools). Service-worker logs: the "service worker" link on the extension card.
 - **Chrome masks Translator availability per origin.** A site sees `downloadable` until it has called `Translator.create()` once inside a real click on *that page*, even when the model is already on disk (`~/Library/Application Support/Google/Chrome/TranslateKit/models/de_en`).

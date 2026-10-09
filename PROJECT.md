@@ -257,4 +257,9 @@ The real content scripts were run on 20 German sites, with screenshots and analy
 - **2026-10-06:**
   - **Publishing:** the user chose option B (free GitHub repo). Removed the unneeded `tabs` permission.
   - **Design pass across 20 sites:** see the design test report above. `page.js` was rewritten around the two display modes, and `content.css` was dropped (styles are now inline so they work inside shadow roots).
-  - **Pending:** a real-translator re-check of the new layout code, after a Chrome restart (Chrome's translation service had stopped for that browser session).
+  - **Pending (done 2026-10-09):** a real-translator re-check of the new layout code, after a Chrome restart (Chrome's translation service had stopped for that browser session).
+- **2026-10-09:** Real-translator re-check after the Chrome restart, on de.wikipedia.org/wiki/Brandenburger_Tor (Alt+T, no enable click needed):
+  - `below` mode: English appeared under the headline, body paragraphs and image captions.
+  - `replace` mode: sidebar, tabs and menus were swapped to English in place.
+  - No error notice.
+  - **Project concluded:** the user considers v1.0.0 good enough. No further work is planned.
